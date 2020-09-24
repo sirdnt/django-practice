@@ -24,4 +24,4 @@ jobs:
       run: |
         cd samplesite
         pwd
-        pylint `ls -R|grep .py$|xargs`
+        pylint `ls -d */ | cut -f1 -d'/' | xargs`
