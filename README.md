@@ -1,3 +1,4 @@
+![Pylint](https://github.com/sirdnt/django-practice/workflows/Pylint/badge.svg?branch=master&event=push)
 # Django-practice
 Playing with Django framework
 
