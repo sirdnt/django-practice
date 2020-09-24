@@ -1,3 +1,22 @@
+Skip to content
+ 
+Search…
+All gists
+Back to GitHub
+@sirdnt 
+@santoshpurbey
+santoshpurbey/.gitignore
+Last active 5 hours ago • Report abuse
+25
+12
+ Code
+ Revisions 6
+ Stars 25
+ Forks 12
+<script src="https://gist.github.com/santoshpurbey/6f982faf1eacdac153ffd86a3a694239.js"></script>
+gitignore file for django project
+.gitignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -8,6 +27,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -20,12 +40,9 @@ parts/
 sdist/
 var/
 wheels/
-pip-wheel-metadata/
-share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -40,16 +57,13 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
-.nox/
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
 .hypothesis/
-.pytest_cache/
 
 # Translations
 *.mo
@@ -58,8 +72,6 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
-db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -77,39 +89,23 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# IPython
-profile_default/
-ipython_config.py
-
 # pyenv
 .python-version
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
+# celery beat schedule file
 celerybeat-schedule
-celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# dotenv
 .env
+
+# virtualenv
 .venv
-env/
 venv/
 ENV/
-env.bak/
-venv.bak/
-
+.vscode
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -122,8 +118,86 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-.dmypy.json
-dmypy.json
 
-# Pyre type checker
-.pyre/
+.DS_Store
+*.sqlite3
+media/
+*.pyc
+*.db
+*.pid
+
+# Ignore Django Migrations in Development if you are working on team
+
+# Only for Development only
+# **/migrations/**
+# !**/migrations
+# !**/migrations/__init__.py
+@bouwehand
+bouwehand commented on Aug 7
+nice! tnx!
+
+@abdulrahmanthebrit
+abdulrahmanthebrit commented on Aug 8
+Great. Thanks for the file.
+
+@ayush-mandowara-bst
+ayush-mandowara-bst commented on Aug 8
+Hi, why do you have migrations in your .gitignore file?
+
+@santoshpurbey
+Owner
+Author
+santoshpurbey commented on Aug 9
+Hi, why do you have migrations in your .gitignore file?
+
+if you are working on the git and sometimes you get a lot of git issues due to migration conflicts in development. It's not recommended for production.
+
+@opeerator
+opeerator commented on Aug 12
+Migration files are part of the code base and should be committed.
+
+@santoshpurbey
+Owner
+Author
+santoshpurbey commented on Aug 15
+Migration files are part of the code base and should be committed.
+
+Hello @opeerator
+
+I agree but in some cases, due to migration conflict, I chose to ignore it.
+
+@anton-adamiv
+anton-adamiv commented on Aug 21
+Hello @santoshpurbey
+What about data migrations?
+
+@iamnur
+iamnur commented on Aug 22
+Awesome
+
+@santoshpurbey
+Owner
+Author
+santoshpurbey commented on Aug 24
+Hello @santoshpurbey
+What about data migrations?
+
+Thank you for pointing import stuff about database migrations, I've created this gist for my use-case where I've faced migrations issue while working with git so I put it in git ignore file but aware of this and only useful for development environment but not for production where we need the most. Interesting fact: unexpectedly this gist appeared on top in google search.
+
+@sirdnt
+ 
+Leave a comment
+
+Attach files by dragging & dropping, selecting or pasting them.
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
