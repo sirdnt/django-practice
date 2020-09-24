@@ -22,6 +22,7 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
+        cp .pylintrc samplesite/.pylintrc
         cd samplesite
         pwd
         pylint `ls -d */ | cut -f1 -d'/' | xargs`
