@@ -15,14 +15,12 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        cd samplesite
         pwd
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        cp .pylintrc samplesite/.pylintrc
-        cd samplesite
         pwd
-        pylint `ls -d */ | cut -f1 -d'/' | xargs`
+        pylint samplesite polls
+#        pylint `ls -d */ | cut -f1 -d'/' | xargs`

@@ -28,6 +28,14 @@ deactivate()
 
 ### *Create project by terminal (TODO)
 
+### *Setup existing project with venv
+
+1: clone project  
+2: create venv  
+  - by pycharm: Setting > Project xxx > Python Interpreter > create new
+  - by terminal (todo)  
+More info click [here](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html)
+
 ## <ins>Create a django project<ins>
 ```
 django-admin startproject mysite
@@ -43,7 +51,7 @@ For example create a polls app (it like a module inside project)
 python manage.py startapp polls
 ```
 Include app into project -> mysite/settings.py
-```
+```pydocstring
 INSTALLED_APPS = [
 	... othe config
 
@@ -54,7 +62,7 @@ INSTALLED_APPS = [
 #### Create views
 For example create index view in the polls app  
 In file polls/views.py
-```python
+```pydocstring
 from django.http import HttpResponse
 
 
@@ -73,7 +81,7 @@ urlpatterns = [
 ]
 ```
 To point the root URLconf at the **polls.urls** module. In **{mysite}/urls.py**, add an import for **django.urls.include** and insert an **include()** in the urlpatterns list
-```python
+```pydocstring
 from django.contrib import admin
 from django.urls import include, path
 
@@ -90,7 +98,7 @@ Note:
 - Each model is represented by a class that subclasses **django.db.models.Model**
 
 For example in polls/models.py  
-```python
+```pydocstring
 from django.db import models
 
 
@@ -123,7 +131,7 @@ python manage.py sqlmigrate polls 0001
 #### Connect with db -> [docs](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES)
 For example connect with PostgreSQL -> in settings.py  
 Change the default db from sqlite 
-```python
+```pydocstring
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -182,7 +190,7 @@ Binding in html by
 ```
 
 Binding an array
-```python
+```pydocstring
 def index(request):
     context = {"item": ["Movie", "Music", "Karaoke"]}
     return render(request, "polls/index.html", context)
@@ -211,4 +219,28 @@ def index(request):
 python manage.py createsuperuser
 ```
 
+## API
+Api using [django-rest-framework](https://www.django-rest-framework.org/)
 
+### Installation
+1. install 
+```
+pip install djangorestframework
+pip install markdown       # Markdown support for the browsable API.
+pip install django-filter  # Filtering support
+```
+2. register in the installed app
+
+```pydocstring
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+]
+```
+3. to use the browsable API 
+```pydocstring
+urlpatterns = [
+    ...
+    url(r'^api-auth/', include('rest_framework.urls'))
+]
+```
